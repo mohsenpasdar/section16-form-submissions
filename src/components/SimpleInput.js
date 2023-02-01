@@ -27,6 +27,14 @@ const SimpleInput = (props) => {
 
   const formSubmissionHandler = (e) => {
     e.preventDefault();
+
+    if (!formIsValid) {
+      return
+    }
+
+    console.log('submitted');
+    console.log(enteredName, enteredEmail);
+
     resetNameInput();
     resetEmailInput()
   };
@@ -50,7 +58,7 @@ const SimpleInput = (props) => {
           onBlur={nameBlurHAndler}
           value={enteredName}
         />
-        {nameInputHasError && <p>Name must not be empty!</p>}
+        {nameInputHasError && <p className="error-text">Name must not be empty!</p>}
       </div>
       <div className={emailInputClasses}>
         <label htmlFor="email">Your E-mail</label>
@@ -61,7 +69,7 @@ const SimpleInput = (props) => {
           onBlur={emailBlurHAndler}
           value={enteredEmail}
         />
-        {emailInputHasError && <p>Please enter a valid E-mail!</p>}
+        {emailInputHasError && <p className="error-text">Please enter a valid E-mail!</p>}
       </div>
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
