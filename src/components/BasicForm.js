@@ -30,16 +30,20 @@ const BasicForm = (props) => {
 
   let formIsValid = false;
 
-  if (enteredFirstNameIsValid && enteredLastNameIsValid) {
+  if (
+    enteredFirstNameIsValid &&
+    enteredLastNameIsValid &&
+    enteredEmailIsValid
+  ) {
     formIsValid = true;
   }
 
   const formSubmissionHandler = (e) => {
-    e.preventDefault()
-    resetFirstNameInput()
-    resetFirstNameInput()
-    resetEmailInput()
-  }
+    e.preventDefault();
+    resetFirstNameInput();
+    resetLastNameInput();
+    resetEmailInput();
+  };
 
   const firstNameameInputClasses = firstNameInputHasError
     ? "form-control invalid"
